@@ -8,7 +8,7 @@ homepage: https://github.com/Eronildo/pod
 topics: [riverpod, pod, atom, dependency-injection, state-management]
 
 environment:
-  sdk: '>=2.17.0 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   meta: ^1.3.0
