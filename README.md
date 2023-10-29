@@ -13,7 +13,7 @@ _Inspired by [Riverpod][riverpod_link] and [Jōtai][jotai_link]_
 | Package                              | Pub                                                           |
 | ------------------------------------ | ------------------------------------------------------------- |
 | [pod][pod_git_link]                  | [![pub package][pod_pub_badge]][pod_pub_link]                 |
-| [flutter_pod][pod_git_link]          | [![pub package][flutter_pod_pub_badge]][flutter_pod_pub_link] |
+| [flutter_pod][flutter_pod_git_link]  | [![pub package][flutter_pod_pub_badge]][flutter_pod_pub_link] |
 
 ---
 
