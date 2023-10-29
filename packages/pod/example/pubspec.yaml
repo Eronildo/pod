@@ -1,0 +1,15 @@
+name: pod_example
+description: A Pod example project.
+
+publish_to: "none"
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  pod:
+    path: ../../pod
+
+dependency_overrides:
+  pod:
+    path: ../../pod

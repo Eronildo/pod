@@ -24,20 +24,41 @@ _Inspired by [Riverpod][riverpod_link] and [Jōtai][jotai_link]_
 import 'package:flutter/material.dart';
 import 'package:flutter_pod/flutter_pod.dart';
 
-/// A pod that asynchronously exposes the current user
-final userPod = futurePod<User>((_) async {
-  // fetch the user
-});
+import 'package:bloc_pod/bloc_pod.dart';
 
+/// Counter Events
+sealed class CounterEvent {}
+final class CounterIncrementPressed extends CounterEvent {}
+
+/// Counter Bloc
+class CounterBloc extends Bloc<CounterEvent, int> {
+  CounterBloc() : super(0) {
+    on<CounterIncrementPressed>((event, emit) => emit(state + 1));
+  }
+}
+
+/// Create a Bloc Pod
+final counterBloc = blocPod<CounterBloc, int>((_) => CounterBloc());
+
+/// Usage of counter bloc in Widget
+///
+/// Requires add and import flutter_pod
 class Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AsyncValue<User> user = context.watch(userPod);
+    final counter = context.watch(counterBloc);
 
-    return user.when(
-      loading: () => CircularProgressIndicator(),
-      error: (error, stack) => Text('Oops, something unexpected happened'),
-      data: (user) => Text('Hello ${user.name}'),
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: Text('$counter'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.read(counterBloc.notifier).add(CounterIncrementPressed());
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }

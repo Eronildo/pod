@@ -1,0 +1,16 @@
+name: bloc_pod_example
+description: A BlocPod example project.
+
+publish_to: "none"
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  bloc: ^8.1.2
+  bloc_pod:
+    path: ../../bloc_pod
+
+dependency_overrides:
+  bloc_pod:
+    path: ../../bloc_pod

@@ -650,7 +650,7 @@ extension AsyncValueX<T> on AsyncValue<T> {
     );
   }
 
-  /// Perform some actions based on the state of the [AsyncValue], or call 
+  /// Perform some actions based on the state of the [AsyncValue], or call
   /// orElse if the current state was not tested.
   R maybeMap<R>({
     required R Function() orElse,
@@ -674,7 +674,7 @@ extension AsyncValueX<T> on AsyncValue<T> {
     );
   }
 
-  /// Perform some actions based on the state of the [AsyncValue], or return 
+  /// Perform some actions based on the state of the [AsyncValue], or return
   /// null if the current state wasn't tested.
   R? mapOrNull<R>({
     R? Function(AsyncData<T> data)? data,

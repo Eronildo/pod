@@ -16,8 +16,8 @@ PodNotifier<Pod<N>, T> changeNotifierPod<N extends ChangeNotifier, T>(
           return notifier;
         },
       ),
-      (ref, parent) {
-        final notifier = ref.watch(parent);
+      (ref, pod) {
+        final notifier = ref.watch(pod);
 
         void onChange() => ref.setSelf(select(notifier));
         notifier.addListener(onChange);

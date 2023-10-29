@@ -2,7 +2,7 @@ name: pod
 description: >
   A dependency injection and state management library,
   fast, simple and composable inspired by Riverpod and Jōtai.
-version: 0.15.0
+version: 0.16.0
 repository: https://github.com/Eronildo/pod/tree/master/packages/pod
 homepage: https://github.com/Eronildo/pod
 topics: [riverpod, pod, atom, dependency-injection, state-management]

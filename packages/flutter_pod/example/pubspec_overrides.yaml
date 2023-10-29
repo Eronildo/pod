@@ -1,0 +1,5 @@
+dependency_overrides:
+  flutter_pod:
+    path: ../../flutter_pod
+  pod:
+    path: ../../pod
