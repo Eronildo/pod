@@ -119,4 +119,41 @@ class PodContext<Value> implements Ref<Value> {
     }
     _disposers = null;
   }
+
+  @override
+  Future<void> debounce(Duration duration) {
+    final completer = Completer<void>();
+    final timer = Timer(duration, () {
+      if (!completer.isCompleted) completer.complete();
+    });
+
+    onDispose(() {
+      timer.cancel();
+      if (!completer.isCompleted) {
+        completer.completeError(StateError('cancelled'));
+      }
+    });
+
+    return completer.future;
+  }
+
+  DateTime? _lastCalled;
+
+  @override
+  void throttle(
+    void Function() callback, {
+    Duration duration = const Duration(milliseconds: 500),
+  }) {
+    final now = DateTime.now();
+
+    if (_lastCalled != null) {
+      if (now.difference(_lastCalled!) > duration) {
+        callback();
+      }
+    } else {
+      callback();
+    }
+
+    _lastCalled = now;
+  }
 }

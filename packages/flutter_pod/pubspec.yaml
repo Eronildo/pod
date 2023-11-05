@@ -2,19 +2,18 @@ name: flutter_pod
 description: >
   A dependency injection and state management library,
   fast, simple and composable inspired by Riverpod and Jōtai.
-version: 0.16.0
+version: 0.17.0
 repository: https://github.com/Eronildo/pod/tree/master/packages/flutter_pod
 homepage: https://github.com/Eronildo/pod
 topics: [riverpod, pod, atom, dependency-injection, state-management]
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  pod: ^0.15.0
+  pod: ^0.17.0
 
 dev_dependencies:
   flutter_test:

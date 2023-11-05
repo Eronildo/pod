@@ -1,3 +1,22 @@
+pubspec.lock
+
+# Ignoring native folders of the example as they can be re-generated easily using:
+# flutter create --platforms=android,ios,web,windows,linux,macos .
+**/example/android/
+**/example/ios/
+**/example/web/
+**/example/windows/
+**/example/linux/
+**/example/macos/
+examples/**/android/
+examples/**/ios/
+examples/**/web/
+examples/**/windows/
+examples/**/linux/
+examples/**/macos/
+# Include specific entitlements files which enable internet access
+!examples/**/macos/Runner/DebugProfile.entitlements
+
 # Miscellaneous
 *.class
 *.lock
@@ -100,9 +119,8 @@ coverage_badge.svg
 *.lcov
 nohup.out
 
-# Mason
-mason-lock.json
-.mason
+# Web related
+lib/generated_plugin_registrant.dart
 
 # Exceptions to above rules.
 !.vscode/launch.json

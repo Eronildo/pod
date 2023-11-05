@@ -1,0 +1,24 @@
+name: todos
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_pod:
+  hook_it: ^0.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+dependency_overrides:
+  flutter_pod:
+    path: ../../packages/flutter_pod
+
+flutter:
+  uses-material-design: true

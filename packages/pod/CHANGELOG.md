@@ -1,3 +1,9 @@
+## 0.17.0
+
+* Add debounce and throttle methods in Ref.
+* New Notifiers: Notifier and AsyncNotifier.
+* New Pods: notifierPod and asyncNotifierPod.
+
 ## 0.16.0
 
 * Add example.

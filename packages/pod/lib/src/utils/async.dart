@@ -29,8 +29,9 @@ import 'package:meta/meta.dart';
 ///   }
 /// }
 /// ```
+@sealed
 @immutable
-abstract class AsyncValue<T> {
+sealed class AsyncValue<T> {
   const AsyncValue._();
 
   /// Creates an [AsyncValue] with a data.
@@ -112,6 +113,8 @@ abstract class AsyncValue<T> {
   /// The stacktrace of [error].
   StackTrace? get stackTrace;
 
+  String get _displayString;
+
   /// Perform some action based on the current state of the [AsyncValue].
   ///
   /// This allows reading the content of an [AsyncValue] in a type-safe way,
@@ -166,7 +169,7 @@ abstract class AsyncValue<T> {
       ],
     ].join(', ');
 
-    return '$runtimeType($content)';
+    return '$_displayString<$T>($content)';
   }
 
   @override
@@ -208,6 +211,9 @@ class AsyncData<T> extends AsyncValue<T> {
     required this.error,
     required this.stackTrace,
   }) : super._();
+
+  @override
+  String get _displayString => 'AsyncData';
 
   @override
   final T value;
@@ -265,6 +271,9 @@ class AsyncLoading<T> extends AsyncValue<T> {
     required this.error,
     required this.stackTrace,
   }) : super._();
+
+  @override
+  String get _displayString => 'AsyncLoading';
 
   @override
   bool get isLoading => true;
@@ -375,6 +384,9 @@ class AsyncError<T> extends AsyncValue<T> {
     required this.isLoading,
   })  : _value = value,
         super._();
+
+  @override
+  String get _displayString => 'AsyncError';
 
   @override
   final bool isLoading;

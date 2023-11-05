@@ -1,6 +1,6 @@
 name: bloc_pod
 description: A dependency injection for BLoC, implemented with Pod as alternative to provider.
-version: 0.16.0
+version: 0.17.0
 repository: https://github.com/Eronildo/pod/tree/master/packages/bloc_pod
 homepage: https://github.com/Eronildo/pod
 topics: [bloc, pod, atom, dependency-injection, state-management]
@@ -10,4 +10,4 @@ environment:
 
 dependencies:
   bloc: ^8.1.2
-  pod: ^0.15.0
+  pod: ^0.17.0
