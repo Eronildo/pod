@@ -1,3 +1,7 @@
+## 0.18.0
+
+* Verify null safety.
+
 ## 0.17.0
 
 * Add debounce and throttle methods in Ref.

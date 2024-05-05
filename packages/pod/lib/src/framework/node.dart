@@ -78,9 +78,11 @@ class Node {
     if (state.waitingForValue) {
       _ref = pod.getContext(this);
 
-      final value = pod.read(_ref!);
-      if (state.waitingForValue) {
-        setValue(value);
+      if (_ref != null) {
+        final value = pod.read(_ref!);
+        if (state.waitingForValue) {
+          setValue(value);
+        }
       }
 
       // Removed orphaned parents
@@ -111,10 +113,10 @@ class Node {
     );
 
     if (previousParents != null) {
-      if (previousParents!.node == node) {
-        previousParents = previousParents!.next;
+      if (previousParents?.node == node) {
+        previousParents = previousParents?.next;
       } else {
-        previousParents!.remove(node);
+        previousParents?.remove(node);
       }
     }
 
@@ -130,7 +132,7 @@ class Node {
   /// Remove a child [Node].
   void removeChild(Node node) {
     if (children?.node == node) {
-      children = children!.next;
+      children = children?.next;
       children?.previous = null;
     } else {
       children?.remove(node);
@@ -206,7 +208,7 @@ class Node {
   /// Dispose the [Ref] context.
   void disposeContext() {
     if (_ref != null) {
-      _ref!.dispose();
+      _ref?.dispose();
       _ref = null;
     }
 
@@ -255,7 +257,7 @@ class Node {
         listeners = l.next;
         l.next?.previous = null;
       } else {
-        l.previous!.next = l.next;
+        l.previous?.next = l.next;
         l.next?.previous = l.previous;
       }
     };
